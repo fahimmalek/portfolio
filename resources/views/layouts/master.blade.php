@@ -24,18 +24,31 @@
 
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="/css/blog.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
   </head>
 
   <body>
 
 
-<div class="container">
+@if($flash = session('message'))
+<div class="alert alert-success" id="flash-message" role="alert">
+
+    {{$flash}}
+
+</div>
+
+@endif
+
 @include ('layouts.nav')
+
+
 
 @yield ('content')
 
+
 @include ('layouts.foot')
 
+
+</div>
   </body>
 </html>
