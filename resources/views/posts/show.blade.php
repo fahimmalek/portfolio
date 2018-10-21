@@ -4,18 +4,33 @@
 
 <div class="container">
      <h1>{{$post->title}}</h1>
+
+     @if (count($post->tags))
+
+        <ul>
+            @foreach($post->tags as $tag)
+            <a href="/posts/tags/{{$tag->name}}">
+            {{$tag->name}}
+            </a>
+            @endforeach
+        </ul>
+
+     @endif
+
      <p>{{$post->body}}</p>
      <hr>
      <div class="comments">
         <ul class="list-group">
         
         @foreach ($post->comments as $comment)
-        <strong>
-            {{$comment->created_at->diffForHumans()}}
-        </strong>
-        <li class="list-group-item">
-            {{$comment->body}}
-        </li>
+
+            <strong>
+                {{$comment->created_at->diffForHumans()}}
+            </strong>
+
+            <li class="list-group-item">
+                {{$comment->body}}
+            </li>
         @endforeach
 
         </ul>

@@ -7,6 +7,7 @@
         <div class="col-md-8 blog-main">
           @foreach ($posts as $post)
             @include('posts.entry')
+            <hr class="hr-primary">
           @endforeach
 
         </div><!-- /.blog-main -->

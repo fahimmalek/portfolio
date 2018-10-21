@@ -3,6 +3,7 @@
 namespace App;
 use Carbon\Carbon;
 
+
 class Post extends Model
 {
 
@@ -53,4 +54,12 @@ class Post extends Model
           ->toArray();
 
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+
+
 }

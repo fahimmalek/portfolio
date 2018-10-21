@@ -6,7 +6,7 @@
        <div class="col-md-8 blog-main">
 
     <div class="blog-post">
-           <h2 class="blog-post-title">Register</h2>
+           <h2 class="blog-post-title">Log In</h2>
                 <div class="blog-post">
 
                 <form method="POST" action="/login">
@@ -28,16 +28,16 @@
                         <button type="submit" class="btn btn-primary">Log in</button>
                     </div>
 
-                
-                       
-              
+
+
+
                 </form>
 
                @include('layouts.errors')
 
                 </div>
             </div><!-- /.blog-post -->
-         
+
         </div><!-- /.blog-main -->
 
     </div><!-- /.row -->

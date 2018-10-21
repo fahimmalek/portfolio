@@ -17,7 +17,21 @@ class AppServiceProvider extends ServiceProvider
         //
         view()->composer('layouts.sidebar', function ($view){
 
-            $view->with('archives', \App\Post::archives());
+            
+            $archives = \App\Post::archives();
+
+            //only retrieve tags if they have posts associated with them
+            $tags =  \App\Tag::has('posts')->pluck('name');
+
+            $view->with(compact('archives', 'tags'));
+
+        });
+
+        view()->composer('posts.entry', function ($view){
+            //only retrieve tags if they have posts associated with them
+            $tags =  \App\Tag::has('posts')->pluck('name');
+
+            $view->with(compact('tags'));
 
         });
 

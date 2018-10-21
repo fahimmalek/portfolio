@@ -40,6 +40,7 @@
 @endif
 
 @include ('layouts.nav')
+<hr>
 
 
 

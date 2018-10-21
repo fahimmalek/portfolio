@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Request;
 
 use App\Post;
+use App\User;
 
 class PostsController extends Controller
 {
@@ -19,10 +20,7 @@ class PostsController extends Controller
 
 
     public function index(){
-
-
           //return session('message');
-
           //orderby('created_at', 'asc')->get()
           $posts = Post::latest()
           
@@ -70,9 +68,17 @@ class PostsController extends Controller
           );
 
           session()->flash('message', 'Your post has now been published.');
-
           return redirect('/');
-
         }
+
+    public function deletePost(Post $post)
+    {
+
+      $postToDel=Post::find($post)->first;
+
+      $postToDel->delete();
+      return redirect('/');
+
+    }
 
 }
